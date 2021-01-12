@@ -19,9 +19,48 @@
 			<li>Lead Developer Evangelist for HERE</li>
 			<li>Blogging at raymondcamden.com</li>
 			<li>Tweeting @raymondcamden</li>
-			<li>Repo: <a href="https://github.com/cfjedimaster/api-integration-jamstack" target="_new">github.com/cfjedimaster/api-integration-jamstack</a></li>
+			<li>Repo: <a href="https://github.com/cfjedimaster/searchthis" target="_new">github.com/cfjedimaster/searchthis</a></li>
 		</ul>
 	</section>	
+
+	<section>
+		<h2>How It Started</h2>
+		<img src="img/frontpage.jpg">
+	</section>
+
+	<section>
+	<h2>My Old Stack</h2>
+	<ul>
+	<li class="fragment">Apache</li>
+	<li class="fragment">ColdFusion</li>
+	<li class="fragment">SQL Server (or MySQL)</li>
+	</ul>
+	<aside class="notes">app server for everything, db for everything, even if site got like 10 hits a month and an edit once every six months</aside>
+	</section>
+
+	<section>
+	<h2>Boring Not Great Search</h2>
+	<pre><code class="sql">
+select		* (i never did this, honest)
+from		blog
+where		title like #some user input#
+or		body like #some user input#
+	</code></pre>
+	</section>
+
+	<section>
+	<h2>Poor in Multiple Ways</h2>
+	<ul>
+	<li class="fragment">User expectation of input</li>
+	<li class="fragment">Quality of results</li>
+	<li class="fragment">Understanding word variations (leaf, leaves)</li>
+	</ul>
+	<aside class="notes">
+	point one is, searching for "cat or dog food"
+	every match, no order (except maybe date)
+	remind folks DBs did add support for this
+	</aside>
+	</section>
 
 	<section data-background="img/cat_qa.png" data-background-opacity="0.2">
 		<h1>Questions</h1>
