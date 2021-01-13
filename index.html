@@ -3,6 +3,8 @@
 <title>Search This!</title>
 <link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css">
 <link rel="stylesheet" href="/node_modules/reveal.js/dist/theme/black.css">
+<link rel="stylesheet" href="/node_modules/reveal.js/plugin/highlight/monokai.css">
+<script src="/node_modules/reveal.js/plugin/highlight/highlight.js"></script>
 </head>
 
 <body>
@@ -90,12 +92,16 @@ or		body like #some user input#
 	</section>
 
 	<section>
+		<h1>Solution 1</h1>
+	</section>
+
+	<section>
 	<h2>Google Custom Search Engine (GCSE)</h2>
 	<ul>
 	<li class="fragment">"Programmable Search Engine"</li>
 	<li class="fragment">You define a site (or sites) to search</li>
 	<li class="fragment">Google gives you code to drop on a page</li>
-	<li class="fragment">Done</li>
+	<li class="fragment"><a href="https://programmablesearchengine.google.com/" target="_new">programmablesearchengine.google.com</a></li>
 	</ul>
 	</section>
 
@@ -160,6 +166,95 @@ or		body like #some user input#
 		<img src="img/cse2.png">
 	</section>
 
+	<section>
+		<h1>Solution 2</h1>
+	</section>
+
+	<section>
+	<h2>Lunr</h2>
+	<ul>
+	<li class="fragment">Entirely client side (or Node.js)</li>
+	<li class="fragment">Works with an Index</li>
+	<li class="fragment">Supports stemming</li>
+	<li class="fragment">Scores results</li>
+	<li class="fragment">Complex queries</li>
+	<li class="fragment"></li>
+	</ul>
+	<aside class="notes">
+	from their docs, "searching, searched, searchable, all map to search",
+	complex queries is just a fancy way of saying it supports things like wildcards, it supports 
+	field based searching, so search against the title for ex, it supports boosting, "foo^10 bar", foo is 10x more important), 
+	fuzzy ("foo~1 means you can mispelle one letter), or and and with the + sign 
+	</aside>
+	</section>
+
+	<section>
+	<h2>Basics</h2>
+	<ul>
+	<li class="fragment">Determine your index</li>
+	<li class="fragment">Create an array of this data</li>
+	<li class="fragment">Pass it to Lunr and give it a PK and searchable field</li>
+	<li class="fragment">Search against this index.</li>
+	</ul>
+	<aside class="notes">
+	Lunr doesn't care what you index, but the more data, the more time it takes to load and parse. There's no one answer to this.
+	For a blog, it could be: title + first paragraph of text from blog entry + categories or tags.
+	why searchable fields? you may index stuff you want to return but not search, like date
+	</aside>
+	</section>
+
+	<section>
+	<pre><code class="html">
+&lt;script src="https://unpkg.com/lunr/lunr.js"&gt;&lt;/script&gt;
+	</code></pre>
+	</section>
+
+	<section>
+	<pre><code class="js">
+let documents = [{
+  "title": "Lunr is awesome",
+  "text": "Like Solr, but much smaller, and not as bright."
+}, {
+  "title": "Vue.js is cool",
+  "text": "A JavaScript library for building awesome."
+}, {
+  "title": "Raymond Camden needs a PS5",
+  "text": "Well, 'need' may be a bit strong."
+}];
+	</code></pre>
+	</section>
+
+	<section>
+	<pre><code class="js">
+let idx = lunr(function () {
+  //assumes title is a PK
+  this.ref('title');
+  this.field('text');
+
+  documents.forEach(function (doc) {
+    this.add(doc)
+  }, this)
+})	
+	</code></pre>
+	</section>
+
+	<section>
+	<pre><code class="js">
+let results = idx.search('something');
+	</code></pre>
+	</section>
+
+	<section>
+		<h1>Demo!</h1>
+	</section>
+
+	<section>
+	<h2>More Lunr</h2>
+	<ul>
+	<li class="fragment">Precompiled indexes</li>
+	<li class="fragment"><a href="https://www.raymondcamden.com/2019/10/20/adding-search-to-your-eleventy-static-site-with-lunr" target="_new">Adding Search to your Eleventy Static Site with Lunr</a></li>
+	</ul>
+	</section>
 
 	<section data-background="img/cat_qa.png" data-background-opacity="0.2">
 		<h1>Questions</h1>
@@ -174,7 +269,8 @@ import Reveal from './node_modules/reveal.js/dist/reveal.esm.js';
 
 let deck = new Reveal({
 	slideNumber:"c/t",
-	hash:true
+	hash:true,
+	plugins: [ RevealHighlight ]
 });
 deck.initialize();
 </script>

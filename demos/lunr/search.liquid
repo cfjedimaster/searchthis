@@ -1,0 +1,66 @@
+---
+title: Search
+layout: layout
+---
+
+<p>
+<input type="search" id="search"> <button id="searchBtn">Search</button>
+</p>
+
+<div id="resultsDiv"></div>
+
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script>
+let idx, searchField, docs, resultsDiv;
+
+document.addEventListener('DOMContentLoaded', init, false);
+async function init() {
+	let req = await fetch('/index.json');
+	docs = await req.json();
+
+	idx = lunr(function () {
+		this.ref('url');
+		this.field('content');
+
+		docs.forEach(function (doc) {
+			this.add(doc);
+		}, this)
+	});
+
+	document.querySelector('#searchBtn').addEventListener('click', doSearch, false);
+	searchField = document.querySelector('#search');
+	resultsDiv = document.querySelector('#resultsDiv');
+}
+
+function doSearch(e) {
+	let search = searchField.value;
+	if(!search) return;
+
+	let results = idx.search(search);
+	if(results.length === 0) {
+		resultsDiv.innerHTML = 'Sorry, but there we no results.';
+	} else {
+		let result = `
+		<p>
+		Your search for <strong>${search}</strong> returned ${results.length} result(s):
+		</p>
+		`;
+		results.forEach(r => {
+			//return doc based on ref
+			let doc = getDoc(r.ref);
+			result += `
+<p>
+<a href="${doc.url}">${doc.title}</a> - written ${doc.date}
+</p>
+			`;
+		});
+		resultsDiv.innerHTML = result;
+	}
+
+	console.dir(results);
+}
+
+function getDoc(ref) {
+	return (docs.filter(d => d.url === ref))[0];
+}
+</script>
