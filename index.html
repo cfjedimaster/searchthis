@@ -178,7 +178,6 @@ or		body like #some user input#
 	<li class="fragment">Supports stemming</li>
 	<li class="fragment">Scores results</li>
 	<li class="fragment">Complex queries</li>
-	<li class="fragment"></li>
 	</ul>
 	<aside class="notes">
 	from their docs, "searching, searched, searchable, all map to search",
@@ -194,7 +193,7 @@ or		body like #some user input#
 	<li class="fragment">Determine your index</li>
 	<li class="fragment">Create an array of this data</li>
 	<li class="fragment">Pass it to Lunr and give it a PK and searchable field</li>
-	<li class="fragment">Search against this index.</li>
+	<li class="fragment">Search against this index</li>
 	</ul>
 	<aside class="notes">
 	Lunr doesn't care what you index, but the more data, the more time it takes to load and parse. There's no one answer to this.
@@ -256,6 +255,46 @@ let results = idx.search('something');
 	</ul>
 	</section>
 
+	<section>
+		<h1>Solution 3</h1>
+	</section>
+
+	<section>
+	<h2>Algolia</h2>
+	<ul>
+	<li class="fragment">A commercial service (with a great free tier)</li>
+	<li class="fragment">Index based</li>
+	<li class="fragment">Quality search results (<a href="https://www.algolia.com/doc/guides/getting-started/how-algolia-works/#relevance" target="_new">Relevance notes</a>)</li>
+	<li class="fragment">API driven</li>
+	<li class="fragment">Analytics</li>
+	</ul>
+	<aside class="notes">
+	First off - not free, but there's a good free tier - I'll wait till the next slide to explain it.
+	Like Lunr, Algo works with an index of your content and you control what's indexed
+	Unlike Lunr, the index is stored at Algo, you interact w/ it via API calls. 
+	Add, Edit, Delete operations against your indexes
+	Search calls
+	</aside>
+	</section>
+
+	<section>
+	<h2>Pricing</h2>
+	<p>
+	<a href="https://www.algolia.com/pricing/" target="_new">https://www.algolia.com/pricing/</a>
+	</p>
+	<img src="img/alg1.png" style="float:left">
+	<img src="img/alg2.png">
+	</section>
+
+	<section>
+	<h2>Developer Support</h2>
+	<ul>
+	<li class="fragment"><a href="https://www.algolia.com/developers/#integrations" target="_new">https://www.algolia.com/developers/#integrations</a></li>
+	<li class="fragment"><a href="https://www.algolia.com/doc/" target="_new">https://www.algolia.com/doc/</a></li>
+	<li class="fragment"><a href="https://www.algolia.com/doc/api-reference/rest-api/" target="_new">https://www.algolia.com/doc/api-reference/rest-api/</a></li>
+	</ul>
+	</section>
+	
 	<section data-background="img/cat_qa.png" data-background-opacity="0.2">
 		<h1>Questions</h1>
 		<p>reach me at @raymondcamden</p>

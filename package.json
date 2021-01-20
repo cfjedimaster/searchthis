@@ -1,0 +1,23 @@
+{
+  "name": "searchthis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cfjedimaster/searchthis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cfjedimaster/searchthis/issues"
+  },
+  "homepage": "https://github.com/cfjedimaster/searchthis#readme",
+  "dependencies": {
+    "reveal.js": "^4.1.0"
+  }
+}
