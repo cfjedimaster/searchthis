@@ -1,0 +1,8 @@
+Note to help me finish writing the presentation. I'll probably never
+edit this again after the first time. ;)
+
+Blog post on N/A plugin:
+https://www.netlify.com/blog/2021/01/20/how-algolia-created-its-netlify-build-plugin/
+
+Video on Netlify/Algolia plugin: 
+https://www.youtube.com/watch?v=zbdfqfn1yiM
