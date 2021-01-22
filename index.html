@@ -298,10 +298,79 @@ let results = idx.search('something');
 	<section>
 	<h2>Algolia Basics</h2>
 	<ul>
-	<li class="fragment"></li>
+	<li class="fragment">Sign up</li>
+	<li class="fragment">In the dashboard, create your index (code way as well)</li>
+	<li class="fragment">Figure out what to index</li>
+	<li class="fragment">Send to Algolia via API</li>
+	<li class="fragment">Add search to site</li>
 	</ul>
+	<aside class="notes">
+	Note - i'm only talking about the bare minimum here in terms of setup, as well as what specifically worked
+	for me - i'm going to wrap this section with some alternatives
+	</aside>
 	</section>
 	
+	<section>
+	<h2>More Details</h2>
+	<ul>
+	<li class="fragment">CRUD for index</li>
+	<li class="fragment"><a href="https://github.com/pixelastic/algolia-indexing" target="_new">https://github.com/pixelastic/algolia-indexing</a></li>
+	<li class="fragment">Full automated solution for Netlify (I'll mention more later). </li>
+	</ul>
+	<aside class="notes">
+	You do have a full crud for your index, so if you know what's changed, you add add, edit, delete, etc
+	algolia-indexing - open source prject, not official, but will do a proper diff for you and just magically take
+	care of the detail - BUT - this won't work for my site as it duplicates your content. I'm at like 65% of the free teir and 
+	doubling that means it's too much. But ok - I'll show it
+	</aside>
+	</section>
+
+	<section>
+	<h2>Demo</h2>
+	<p>
+	<a href="https://github.com/cfjedimaster/eleventy_algolia" target="_new">github.com/cfjedimaster/eleventy_algolia</a><br/>
+	<a href="https://eleventyalgolia.netlify.app/" target="_new">eleventyalgolia.netlify.app/</a>
+	</p>
+	<aside class="notes">
+	This is my particular solution using Netlify and algolia-indexing
+	go to eleventy_algolia 
+	show that its a blog
+	.functions/deploy-succeeded
+	</aside>
+	</section>
+
+	<section>
+	<h2>Even Better...</h2>
+	<ul>
+	<li class="fragment"><a href="https://www.netlify.com/blog/2021/01/20/how-algolia-created-its-netlify-build-plugin/">"How Algolia Created Its Netlify Build Plugin"</a></li>
+	<li class="fragment">Connect your site to Algolia...</li>
+	<li class="fragment">Automatically crawl your content on builds</li>
+	<li class="fragment">You add the UI</li>
+	</ul>
+	<aside class="notes">
+	announced on the 20th
+	</aside>
+	</section>
+
+	<section>
+	<h2>More Stuff</h2>
+	<ul>
+	<li class="fragment">Weekly Report <a href="img/algolia.pdf" target="_new">(sample)</a></li>
+	<li class="fragment">Analytics <a href="https://www.algolia.com/apps/WFABFE7Z9Q/analytics/overview/raymondcamden?from=2021-01-15&to=2021-01-21" target="_new">(sample for my site)</a></li>
+	<li class="fragment">Again - A LOT MORE</li>
+	<li class="fragment">Lastly, mine: <a href="https://github.com/cfjedimaster/raymondcamden2020/blob/master/.functions/deploy-succeeded/deploy-succeeded.js" target="_new">raymondcamden.com/deploy-succeded.js</a></li>
+	</ul>
+	</section>
+
+	<section>
+	<h2>More Options</h2>
+	<ul>
+	<li><a href="https://www.customsearch.ai/">Bing Custom Search</a></li>
+	<li><a href="https://www.elastic.co/">ElasticSearch</a></li>
+	<li><a href="https://www.addsearch.com/">AddSearch</a></li>
+	</ul>
+	</section>
+
 	<section data-background="img/cat_qa.png" data-background-opacity="0.2">
 		<h1>Questions</h1>
 		<p>reach me at @raymondcamden</p>
