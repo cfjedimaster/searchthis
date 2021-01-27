@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="/node_modules/reveal.js/dist/theme/black.css">
 <link rel="stylesheet" href="/node_modules/reveal.js/plugin/highlight/monokai.css">
 <script src="/node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="/node_modules/reveal.js/plugin/notes/notes.js"></script>
 </head>
 
 <body>
@@ -24,6 +25,16 @@
 			<li>Repo: <a href="https://github.com/cfjedimaster/searchthis" target="_new">github.com/cfjedimaster/searchthis</a></li>
 		</ul>
 	</section>	
+
+	<section>
+	<p>
+	<img src="img/book.png">
+	</p>
+	<p>
+	<a href="https://www.manning.com/books/the-jamstack-book">manning.com/books/the-jamstack-book</a><br/>
+	<a href="https://www.manning.com/dotd">www.manning.com/dotd</a>
+	</p>
+	</section>
 
 	<section>
 		<h2>How It Started</h2>
@@ -198,7 +209,6 @@ or		body like #some user input#
 	<aside class="notes">
 	Lunr doesn't care what you index, but the more data, the more time it takes to load and parse. There's no one answer to this.
 	For a blog, it could be: title + first paragraph of text from blog entry + categories or tags.
-	why searchable fields? you may index stuff you want to return but not search, like date
 	</aside>
 	</section>
 
@@ -251,6 +261,7 @@ let results = idx.search('something');
 	<h2>More Lunr</h2>
 	<ul>
 	<li class="fragment">Precompiled indexes</li>
+	<li class="fragment"><a href="https://www.raymondcamden.com/2021/01/22/using-pre-built-lunr-indexes-with-eleventy" target="_new">Using Pre-Built Lunr Indexes with Eleventy</a></li>
 	<li class="fragment"><a href="https://www.raymondcamden.com/2019/10/20/adding-search-to-your-eleventy-static-site-with-lunr" target="_new">Adding Search to your Eleventy Static Site with Lunr</a></li>
 	</ul>
 	</section>
@@ -385,7 +396,7 @@ import Reveal from './node_modules/reveal.js/dist/reveal.esm.js';
 let deck = new Reveal({
 	slideNumber:"c/t",
 	hash:true,
-	plugins: [ RevealHighlight ]
+	plugins: [ RevealHighlight, RevealNotes ]
 });
 deck.initialize();
 </script>
