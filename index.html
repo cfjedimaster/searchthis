@@ -393,6 +393,13 @@ let results = idx.search('something');
 <script type="module">
 import Reveal from './node_modules/reveal.js/dist/reveal.esm.js';
 
+let notes = document.querySelectorAll('aside.notes');
+notes.forEach(n => {
+	let html = n.innerHTML;
+	html = html.trim().replace(/\n/g, '<br/>');
+	n.innerHTML = html;
+});
+
 let deck = new Reveal({
 	slideNumber:"c/t",
 	hash:true,
